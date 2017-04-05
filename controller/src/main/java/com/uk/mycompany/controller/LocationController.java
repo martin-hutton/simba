@@ -1,7 +1,5 @@
 package com.uk.mycompany.controller;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.uk.capgemini.resources.RecordResource;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
@@ -25,36 +23,38 @@ public class LocationController {
 
 
     @RequestMapping(value = "/checkin/locations/today", method = RequestMethod.GET)
-    public List<String> greeting(@RequestParam(value = "location", defaultValue = "") final String location) throws Exception {
+    public String greeting(@RequestParam(value = "location", defaultValue = "") final String location) throws Exception {
 
-        logger.error("Configuration File Defined To Be :: "+System.getProperty("log4j.configurationFile"));
-        logger.error("Class Path Defined To Be :: "+System.getProperty("java.class.path"));
+//        logger.error("Configuration File Defined To Be :: "+System.getProperty("log4j.configurationFile"));
+//        logger.error("Class Path Defined To Be :: "+System.getProperty("java.class.path"));
+//
+//        RecordResource recordResource = new RecordResource();
+//
+//        FileOutputStream out = new FileOutputStream("workbook.xls");
+//        Workbook wb = new HSSFWorkbook();
+//        Sheet s = wb.createSheet();
+//        wb.setSheetName(0, "\u0422\u0435\u0441\u0442\u043E\u0432\u0430\u044F " +
+//                "\u0421\u0442\u0440\u0430\u043D\u0438\u0447\u043A\u0430" );
+//        s.createRow(12);
+//        wb.write(out);
+//        out.close();
+//
+//        logger.trace("Logging works!");
+//        logger.error("Logging works!");
+//
+//		//TODO: Add dependancy injection framework
+//
+//		//TODO: Add testing and mocking stuff
+//
+//        //TODO: Add logging
+//
+//        //TODO: See if can use generics for RESTClient/Resources
+//
+//        //TODO: Use ObjectMapper to return a custom JSON response
+//        //ObjectMapper objectMapper
+//
+//        return recordResource.get();
 
-        RecordResource recordResource = new RecordResource();
-
-        FileOutputStream out = new FileOutputStream("workbook.xls");
-        Workbook wb = new HSSFWorkbook();
-        Sheet s = wb.createSheet();
-        wb.setSheetName(0, "\u0422\u0435\u0441\u0442\u043E\u0432\u0430\u044F " +
-                "\u0421\u0442\u0440\u0430\u043D\u0438\u0447\u043A\u0430" );
-        s.createRow(12);
-        wb.write(out);
-        out.close();
-
-        logger.trace("Logging works!");
-        logger.error("Logging works!");
-
-		//TODO: Add dependancy injection framework
-		
-		//TODO: Add testing and mocking stuff
-		
-        //TODO: Add logging
-
-        //TODO: See if can use generics for RESTClient/Resources
-
-        //TODO: Use ObjectMapper to return a custom JSON response
-        //ObjectMapper objectMapper
-
-        return recordResource.get();
+        return "Simba!";
     }
 }

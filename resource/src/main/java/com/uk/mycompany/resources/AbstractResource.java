@@ -18,7 +18,7 @@ public class AbstractResource {
         this.target = target;
     };
 
-    public List<String> get() {
+    public String get() {
         return client.get(target);
     }
 }

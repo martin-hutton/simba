@@ -2,16 +2,10 @@ package com.uk.mycompany.controller;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.apache.poi.hssf.usermodel.HSSFWorkbook;
-import org.apache.poi.ss.usermodel.Sheet;
-import org.apache.poi.ss.usermodel.Workbook;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.io.FileOutputStream;
-import java.util.List;
 
 /**
  * Created by mahutton on 24/03/2017.
@@ -41,6 +35,9 @@ public class LocationController {
 //
 //        logger.trace("Logging works!");
 //        logger.error("Logging works!");
+
+
+        //TODO: Tidy up depenancies in POMs
 //
 //		//TODO: Add dependancy injection framework
 //

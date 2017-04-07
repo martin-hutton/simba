@@ -29,6 +29,8 @@ public class WeekCheckedInController {
     @RequestMapping(value = "/checkin/week", method = RequestMethod.GET)
     public String checkinWeekAnalytics(@RequestParam(value = "location", defaultValue = "") final String location) {
 
+
+
         int row = 0;
         final int column = 0;
 
@@ -38,15 +40,8 @@ public class WeekCheckedInController {
             Workbook wb = new HSSFWorkbook();
             Sheet sheet = wb.createSheet();
             wb.setSheetName(0, "test");
-//            createColumnHeaders(s);
+            createColumnHeaders(sheet);
 
-            int dayOfWeekColumn = 0;
-
-            Row spreadsheetRow = sheet.createRow(0);
-
-            for (final DayOfWeek dayOfWeek : DayOfWeek.values()) {
-                spreadsheetRow.createCell(dayOfWeekColumn++).setCellValue(dayOfWeek.toString());
-            }
 
             AnalyticsWeekCurrentResource analyticsWeekCurrentResource = new AnalyticsWeekCurrentResource();
 
@@ -61,10 +56,46 @@ public class WeekCheckedInController {
 
                     final String username = node.get("username").asText();
 
-                    row++;
-                    sheet.createRow(row).createCell(column).setCellValue(username);
+                    int i = findFirstUppercase(username);
 
-                    logger.trace("Writing " + username + " to row: " + row + " column: " + column);
+                    StringBuilder username1 = new StringBuilder(username);
+
+                    if (-1 == i) {
+                        username1.insert(i, " ");
+                    }
+
+                    row++;
+                    sheet.createRow(row).createCell(column).setCellValue(username1.toString());
+
+                    logger.trace("Writing " + username1.toString() + " to row: " + row + " column: " + column);
+
+                    final String dayOfWeekString;
+
+                    for (final DayOfWeek dayOfWeek : DayOfWeek.values()) {
+                        JsonNode dayNode = node.path(dayOfWeek.toString().substring(0, 1) + dayOfWeek.toString().substring(1, dayOfWeek.toString().length()).toLowerCase());
+
+                        JsonNode checkedInNode = dayNode.findValue("runningCount");
+
+                        if (null != checkedInNode) {
+                            sheet.getRow(row).createCell(dayOfWeek.getValue()).setCellValue("Yes");
+                        }
+
+                        int h = 0;
+                    }
+
+                    //List<JsonNode> test1 = dayOfWeekNode.findValues("runningCount");
+
+                    int a = 0;
+
+//                    dayOfWeekNode.get
+//
+//                    if (dayOfWeekNode.isObject() ) {
+//
+//
+//
+//                        for (JsonNode jsonNode1 :   )
+//
+//                    }
 
 
                 }
@@ -82,14 +113,19 @@ public class WeekCheckedInController {
 
     private void createColumnHeaders(final Sheet sheet) {
 
-        final int rowNumber = 0;
-        int column = 0;
+        final Row spreadsheetRow = sheet.createRow(0);
 
         for (final DayOfWeek dayOfWeek : DayOfWeek.values()) {
-
-            final Row row = sheet.createRow(rowNumber);
-
-            row.createCell(column++).setCellValue(dayOfWeek.toString());
+            spreadsheetRow.createCell(dayOfWeek.getValue()).setCellValue(dayOfWeek.toString().substring(0, 1) + dayOfWeek.toString().substring(1, dayOfWeek.toString().length()).toLowerCase());
         }
+    }
+
+    private int findFirstUppercase(String str) {
+        for (int i = str.length() - 1; i >= 0; i--) {
+            if (Character.isUpperCase(str.charAt(i))) {
+                return i;
+            }
+        }
+        return -1;
     }
 }

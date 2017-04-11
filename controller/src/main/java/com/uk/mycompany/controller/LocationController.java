@@ -1,19 +1,12 @@
 package com.uk.mycompany.controller;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.uk.mycompany.resources.RecordResource;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.apache.poi.hssf.usermodel.HSSFCell;
-import org.apache.poi.hssf.usermodel.HSSFWorkbook;
-import org.apache.poi.ss.usermodel.Sheet;
-import org.apache.poi.ss.usermodel.Workbook;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.io.FileOutputStream;
 
 /**
  * Created by mahutton on 24/03/2017.
@@ -30,17 +23,6 @@ public class LocationController {
         logger.error("Class Path Defined To Be :: " + System.getProperty("java.class.path"));
 
         RecordResource recordResource = new RecordResource();
-
-        FileOutputStream out = new FileOutputStream("workbook.xls");
-        Workbook wb = new HSSFWorkbook();
-        Sheet s = wb.createSheet();
-        wb.setSheetName(0, "test");
-        HSSFCell cell = (HSSFCell) s.createRow(6).createCell(1);
-        cell.setCellValue("Test!");
-        wb.write(out);
-        out.close();
-
-        final ObjectMapper objectMapper = new ObjectMapper();
 
 //        /objectMapper
 

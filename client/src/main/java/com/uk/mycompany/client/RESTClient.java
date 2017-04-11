@@ -16,14 +16,12 @@ import java.util.List;
 
 public class RESTClient {
 
-    private final RestTemplate restTemplate = new RestTemplate();
-
     private final String applicationJson = SimbaConstants.JSON_CONTENT_TYPE;
 
     //TODO: Needs real implementation
-    private final String token = String.format("token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE0ODg0NTA5MjB9.YjCKsXoJ5tDU6s7SzIb-htiD6K1jsj7ePMwM5aCw2Yo");
+    private static final String token = String.format("token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE0ODg0NTA5MjB9.YjCKsXoJ5tDU6s7SzIb-htiD6K1jsj7ePMwM5aCw2Yo");
 
-    public String get(final String endPoint, final String target) {
+    public static String get(final String endPoint, final String target) {
 
         //TODO: Look into genetrics to see if can use for http methods
 
@@ -34,6 +32,7 @@ public class RESTClient {
 
         HttpEntity httpEntity = new HttpEntity(httpHeaders);
 
+        RestTemplate restTemplate = new RestTemplate();
         HttpEntity<String> response = restTemplate.exchange(endPoint + target, HttpMethod.GET, httpEntity,String.class);
 
         return response.getBody();

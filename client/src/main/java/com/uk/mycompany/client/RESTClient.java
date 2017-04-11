@@ -20,8 +20,6 @@ public class RESTClient {
 
     private final String applicationJson = SimbaConstants.JSON_CONTENT_TYPE;
 
-    private final String site = SimbaConstants.CHECK_IN_SERVICE_ENDPOINT;
-
     //TODO: Needs real implementation
     private final String token = String.format("token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE0ODg0NTA5MjB9.YjCKsXoJ5tDU6s7SzIb-htiD6K1jsj7ePMwM5aCw2Yo");
 

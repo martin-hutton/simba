@@ -24,4 +24,6 @@ public class SimbaConstants {
     public static final String TODAY_RESOURCE = "today/all";
 
     public static final String ANALYTICS_WEEK_CURRENT_RESOURCE = "/analytics/week/current";
+
+    public static final String USER_DATA_RESOURCE = "/users?id=";
 }

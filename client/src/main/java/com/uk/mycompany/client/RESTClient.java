@@ -25,7 +25,7 @@ public class RESTClient {
     //TODO: Needs real implementation
     private final String token = String.format("token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE0ODg0NTA5MjB9.YjCKsXoJ5tDU6s7SzIb-htiD6K1jsj7ePMwM5aCw2Yo");
 
-    public String get(final String target) {
+    public String get(final String endPoint, final String target) {
 
         //TODO: Look into genetrics to see if can use for http methods
 
@@ -36,7 +36,7 @@ public class RESTClient {
 
         HttpEntity httpEntity = new HttpEntity(httpHeaders);
 
-        HttpEntity<String> response = restTemplate.exchange("http://check-in-analytics-service.eu-gb.mybluemix.net/analytics/week/current", HttpMethod.GET, httpEntity,String.class);
+        HttpEntity<String> response = restTemplate.exchange(endPoint + target, HttpMethod.GET, httpEntity,String.class);
 
         return response.getBody();
 

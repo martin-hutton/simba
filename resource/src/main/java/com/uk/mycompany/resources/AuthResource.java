@@ -9,6 +9,6 @@ import com.uk.mycompany.shared.constants.SimbaConstants;
 public class AuthResource extends AbstractResource {
 
     public AuthResource() {
-        super(SimbaConstants.AUTH_RESOURCE);
+        super(SimbaConstants.CHECK_IN_SERVICE_ENDPOINT, SimbaConstants.AUTH_RESOURCE);
     }
 }

@@ -7,6 +7,6 @@ import com.uk.mycompany.shared.constants.SimbaConstants;
  */
 public class LocationsTodayResource extends AbstractResource {
     public LocationsTodayResource() {
-        super(SimbaConstants.RECORD_RESOURCE + SimbaConstants.LOCATIONS_RESOURCE + SimbaConstants.TODAY_RESOURCE);
+        super(SimbaConstants.CHECK_IN_SERVICE_ENDPOINT, SimbaConstants.RECORD_RESOURCE + SimbaConstants.LOCATIONS_RESOURCE + SimbaConstants.TODAY_RESOURCE);
     }
 }

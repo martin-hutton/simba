@@ -7,6 +7,6 @@ import com.uk.mycompany.shared.constants.SimbaConstants;
  */
 public class AnalyticsWeekCurrentResource extends AbstractResource {
     public AnalyticsWeekCurrentResource() {
-        super(SimbaConstants.ANALYTICS_WEEK_CURRENT_RESOURCE);
+        super(SimbaConstants.ANALYTICS_SERVICE_ENDPOINT, SimbaConstants.ANALYTICS_WEEK_CURRENT_RESOURCE);
     }
 }

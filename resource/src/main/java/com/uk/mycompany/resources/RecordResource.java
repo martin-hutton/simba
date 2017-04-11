@@ -10,6 +10,6 @@ import com.uk.mycompany.shared.constants.SimbaConstants;
 public class RecordResource extends AbstractResource {
 
     public RecordResource() {
-        super(SimbaConstants.RECORD_RESOURCE);
+        super(SimbaConstants.CHECK_IN_SERVICE_ENDPOINT, SimbaConstants.RECORD_RESOURCE);
     }
 }

@@ -9,6 +9,8 @@ public class SimbaConstants {
 
     public static final String ANALYTICS_SERVICE_ENDPOINT = "http://check-in-analytics-service.eu-gb.mybluemix.net";
 
+    public static final String USER_SERVICE_ENDPOINT = "https://aston-user-service.eu-gb.mybluemix.net";
+
     public static final String RECORD_RESOURCE = "record/";
 
     public static final String AUTH_RESOURCE = "auth/";
@@ -22,4 +24,6 @@ public class SimbaConstants {
     public static final String TODAY_RESOURCE = "today/all";
 
     public static final String ANALYTICS_WEEK_CURRENT_RESOURCE = "/analytics/week/current";
+
+    public static final String USER_DATA_RESOURCE = "/users?id=";
 }

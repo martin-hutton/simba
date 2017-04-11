@@ -11,14 +11,16 @@ import java.util.List;
 public class AbstractResource {
 
     private final String target;
+    private final String endPoint;
 
     protected final RESTClient client = new RESTClient();
 
-    public AbstractResource(final String target) {
+    public AbstractResource(final String endPoint, final String target) {
+        this.endPoint = endPoint;
         this.target = target;
     };
 
     public String get() {
-        return client.get(target);
+        return client.get(endPoint, target);
     }
 }

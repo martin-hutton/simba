@@ -10,11 +10,11 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.time.DayOfWeek;
 import java.util.Optional;
-import java.util.stream.StreamSupport;
 
 /**
  * Created by mahutton on 08/04/2017.
@@ -25,67 +25,55 @@ public class WeeklyCheckInSpreadsheet {
 
     private static final int FIRST_COLUMN = 0;
 
-    private static final int SECOND_ROW = 0;
+    private static final int SECOND_ROW = 1;
 
     private static final Logger logger = LogManager.getLogger(WeeklyCheckInSpreadsheet.class);
 
     private final String dataSource;
 
-    private Workbook workbook;
+    private Workbook workbook = new HSSFWorkbook();
 
-    private FileOutputStream out;
+    private FileOutputStream fileOutputStream = new FileOutputStream("AIE.xls");
+
+    final ObjectMapper objectMapper = new ObjectMapper();
 
     //TODO: Need a better package name
     //TODO: Should this be inside a Factory pattern for the different types of spreadsheets that can be created
     // could then be with a public method to write to disk
-    public WeeklyCheckInSpreadsheet(final String datasource) {
+    public WeeklyCheckInSpreadsheet(final String datasource) throws FileNotFoundException {
         this.dataSource = datasource;
-        this.createSpreadSheet();
+        this.createSheet();
     }
 
-    private void createSpreadSheet() {
-
-
+    private void createSheet() {
         try {
-
-            out = new FileOutputStream("workbook.xls");
-            Workbook wb = new HSSFWorkbook();
-            Sheet sheet = wb.createSheet();
-            wb.setSheetName(0, "test");
+            final Sheet sheet = workbook.createSheet();
+            workbook.setSheetName(0, "Weely Checkin");
             createColumnHeaders(sheet);
 
-            final ObjectMapper objectMapper = new ObjectMapper();
-
             final JsonNode jsonNode = objectMapper.readValue(dataSource, JsonNode.class);
+            final int column = FIRST_COLUMN;
+            int row = SECOND_ROW;
 
             if (jsonNode.isArray()) {
+                for (JsonNode node : jsonNode) {
 
-                StreamSupport.stream(jsonNode.spliterator(), false).forEach(
+                    final String formattedUsername = formatUsername(node.get("username").asText());
+                    insertStringToCell(sheet, row, column, formattedUsername);
 
-                        node -> {
-                            final int column = FIRST_COLUMN;
-                            int row = SECOND_ROW;
-                            final String formattedUsername = formatUsername(node.get("username").asText());
+                    for (final DayOfWeek dayOfWeek : DayOfWeek.values()) {
+                        final JsonNode dayNode = node.path(StringUtils.formatStringToCamelCase(dayOfWeek.toString()));
+                        final Optional<JsonNode> checkedInNode = Optional.ofNullable(dayNode.findValue("runningCount"));
 
-                            row++;
-                            insertStringToCell(sheet, row, column, formattedUsername);
-
-                            for (final DayOfWeek dayOfWeek : DayOfWeek.values()) {
-                                final JsonNode dayNode = node.path(StringUtils.formatStringToCamelCase(dayOfWeek.toString()));
-                                final Optional<JsonNode> checkedInNode = Optional.ofNullable(dayNode.findValue("runningCount"));
-
-                                if (checkedInNode.isPresent()) {
-                                    sheet.getRow(row).createCell(dayOfWeek.getValue()).setCellValue("Yes");
-                                }
-                            }
-
-
+                        if (checkedInNode.isPresent()) {
+                            sheet.getRow(row).createCell(dayOfWeek.getValue()).setCellValue("Yes");
                         }
-                );
+                    }
+                    row++;
+                }
 
             }
-
-            this.workbook = wb;
+            this.workbook = workbook;
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -94,14 +82,15 @@ public class WeeklyCheckInSpreadsheet {
 
     public void writeToDirectory() {
         try {
-            workbook.write(out);
-            out.close();
+            workbook.write(fileOutputStream);
+            fileOutputStream.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
 
     }
 
+    //TODO:Create generic method to insert data into cell
     private void insertStringToCell(final Sheet sheet, final int row, final int column, final String text) {
         sheet.createRow(row).createCell(column).setCellValue(text);
     }
@@ -111,7 +100,7 @@ public class WeeklyCheckInSpreadsheet {
         final Row spreadsheetRow = sheet.createRow(0);
 
         for (final DayOfWeek dayOfWeek : DayOfWeek.values()) {
-            spreadsheetRow.createCell(dayOfWeek.getValue()).setCellValue(dayOfWeek.toString().substring(0, 1) + dayOfWeek.toString().substring(1, dayOfWeek.toString().length()).toLowerCase());
+            spreadsheetRow.createCell(dayOfWeek.getValue()).setCellValue(StringUtils.formatStringToCamelCase(dayOfWeek.toString()));
         }
     }
 
@@ -127,7 +116,6 @@ public class WeeklyCheckInSpreadsheet {
     private String formatUsername(final String username) {
 
         int charIndex = findFirstUppercaseCharacter(username);
-
         StringBuilder usernameStringBuilder = new StringBuilder(username);
 
         if (NO_UPPERCASE_CHAR_FOUND != charIndex) {

@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.io.FileNotFoundException;
+
 /**
  * Created by mahutton on 06/04/2017.
  */
@@ -18,7 +20,7 @@ public class WeekCheckedInController {
     private static final Logger logger = LogManager.getLogger(WeekCheckedInController.class);
 
     @RequestMapping(value = "/checkin/week", method = RequestMethod.GET)
-    public String checkinWeekAnalytics(@RequestParam(value = "location", defaultValue = "") final String location) {
+    public String checkinWeekAnalytics(@RequestParam(value = "location", defaultValue = "") final String location) throws FileNotFoundException {
 
         AnalyticsWeekCurrentResource analyticsWeekCurrentResource = new AnalyticsWeekCurrentResource();
 

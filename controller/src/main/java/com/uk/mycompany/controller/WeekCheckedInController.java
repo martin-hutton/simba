@@ -1,7 +1,10 @@
 package com.uk.mycompany.controller;
 
+import com.uk.mycompany.domain.Devise;
 import com.uk.mycompany.resources.AnalyticsWeekCurrentResource;
-import com.uk.mycompany.spreadsheet.WeeklyCheckInSpreadsheet;
+import com.uk.mycompany.services.handler.JsonHandler;
+import com.uk.mycompany.spreadsheet.sheet.ProfileSheet;
+import com.uk.mycompany.spreadsheet.sheet.WeeklyCheckinSheet;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,6 +13,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.io.FileNotFoundException;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Set;
 
 /**
  * Created by mahutton on 06/04/2017.
@@ -26,9 +32,25 @@ public class WeekCheckedInController {
 
         final String response = analyticsWeekCurrentResource.get();
 
-        WeeklyCheckInSpreadsheet weeklyCheckInSpreadsheet = new WeeklyCheckInSpreadsheet(response);
+        final Set<Devise> deviseSet = JsonHandler.transformDeviseFromJson(response);
 
-        weeklyCheckInSpreadsheet.writeToDirectory();
+//        SheetFactory.getSheet(SheetType.CHECKIN, deviseSet);
+        Set<Devise> newDeviseSet = new HashSet<>();
+        //TODO: Fix!
+        for (Iterator<Devise> iterator = deviseSet.iterator(); iterator.hasNext(); ) {
+            Devise s = iterator.next();
+            if (s.getProfileDetails().getUsername().contains("KwasiAmponsa")) {
+                iterator.remove();
+            }
+        }
+
+        ProfileSheet sheet = new ProfileSheet(deviseSet);
+        WeeklyCheckinSheet sheet1 = new WeeklyCheckinSheet(deviseSet);
+
+
+//        WeeklyCheckinSheet weeklyCheckInSpreadsheet = new WeeklyCheckinSheet(response);
+//
+//        weeklyCheckInSpreadsheet.writeToDirectory();
 
         return "test!";
     }

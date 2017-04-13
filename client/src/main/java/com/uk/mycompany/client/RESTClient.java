@@ -1,10 +1,7 @@
 package com.uk.mycompany.client;
 
 import com.uk.mycompany.shared.constants.SimbaConstants;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.MediaType;
+import org.springframework.http.*;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.Arrays;
@@ -27,18 +24,20 @@ public class RESTClient {
 
     public String get(final String target) {
 
-        //TODO: Look into genetrics to see if can use for http methods
+        //TODO: Sort out http://aston-user-service.eu-gb.mybluemix.net/user/KwasiAmponsa/details issue
+        if (!target.contains("http://aston-user-service.eu-gb.mybluemix.net/user/KwasiAmponsa/details")) {
+            //TODO: Look into genetrics to see if can use for http methods
 
-        HttpHeaders httpHeaders = new HttpHeaders();
+            HttpHeaders httpHeaders = new HttpHeaders();
 
-        httpHeaders.setContentType(MediaType.APPLICATION_JSON);
-        httpHeaders.add(HttpHeaders.AUTHORIZATION, token);
+            httpHeaders.setContentType(MediaType.APPLICATION_JSON);
+            httpHeaders.add(HttpHeaders.AUTHORIZATION, token);
 
-        HttpEntity httpEntity = new HttpEntity(httpHeaders);
+            HttpEntity httpEntity = new HttpEntity(httpHeaders);
 
-        HttpEntity<String> response = restTemplate.exchange("http://check-in-analytics-service.eu-gb.mybluemix.net/analytics/week/current", HttpMethod.GET, httpEntity,String.class);
+            ResponseEntity<String> response = restTemplate.exchange(target, HttpMethod.GET, httpEntity, String.class);
 
-        return response.getBody();
+            return response.getBody();
 
 //        return client.post(site + target)
 //                .header(HttpHeaders.CONTENT_TYPE, applicationJson)
@@ -46,5 +45,10 @@ public class RESTClient {
 //                .useCaches(false)
 //                .body(requestBody)
 //                .asJsonObject();
+        }
+        else {
+            return "404";
+        }
+
     }
 }

@@ -16,6 +16,7 @@
         <module>client</module>
         <module>resource</module>
         <module>spreadsheet</module>
+        <module>services</module>
         <module>application</module>
     </modules>
 

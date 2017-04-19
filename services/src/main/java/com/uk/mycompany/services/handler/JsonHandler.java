@@ -70,7 +70,6 @@ public final class JsonHandler {
         final Set<Devise> deviseSet = new HashSet<>();
         final Set<ProfileDetails> profileDetailsSet = new HashSet<>();
 
-
         try {
             final JsonNode jsonNode = objectMapper.readValue(data, JsonNode.class);
 

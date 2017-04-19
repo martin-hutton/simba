@@ -3,8 +3,9 @@ package com.uk.mycompany.controller;
 import com.uk.mycompany.domain.Devise;
 import com.uk.mycompany.resources.AnalyticsWeekCurrentResource;
 import com.uk.mycompany.services.handler.JsonHandler;
-import com.uk.mycompany.spreadsheet.sheet.ProfileSheet;
-import com.uk.mycompany.spreadsheet.sheet.WeeklyCheckinSheet;
+import com.uk.mycompany.spreadsheet.AIESpreadsheet;
+import com.uk.mycompany.spreadsheet.sheet.AIESpreadsheetFactory;
+import com.uk.mycompany.spreadsheet.sheet.enumeration.SheetType;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -34,7 +35,6 @@ public class WeekCheckedInController {
 
         final Set<Devise> deviseSet = JsonHandler.transformDeviseFromJson(response);
 
-//        SheetFactory.getSheet(SheetType.CHECKIN, deviseSet);
         Set<Devise> newDeviseSet = new HashSet<>();
         //TODO: Fix!
         for (Iterator<Devise> iterator = deviseSet.iterator(); iterator.hasNext(); ) {
@@ -44,13 +44,13 @@ public class WeekCheckedInController {
             }
         }
 
-        ProfileSheet sheet = new ProfileSheet(deviseSet);
-        WeeklyCheckinSheet sheet1 = new WeeklyCheckinSheet(deviseSet);
+        Set<SheetType> sheetTypeSet = new HashSet<>();
+        sheetTypeSet.add(SheetType.CHECKIN);
+        sheetTypeSet.add(SheetType.PROFILE);
 
+        AIESpreadsheet spreadsheet = AIESpreadsheetFactory.getSpreadsheet(sheetTypeSet, deviseSet);
 
-//        WeeklyCheckinSheet weeklyCheckInSpreadsheet = new WeeklyCheckinSheet(response);
-//
-//        weeklyCheckInSpreadsheet.writeToDirectory();
+        spreadsheet.writeToDirectory();
 
         return "test!";
     }

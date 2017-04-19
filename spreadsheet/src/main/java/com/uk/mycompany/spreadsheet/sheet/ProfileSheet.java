@@ -2,16 +2,14 @@ package com.uk.mycompany.spreadsheet.sheet;
 
 import com.uk.mycompany.domain.Devise;
 import com.uk.mycompany.domain.ProfileDetails;
+import com.uk.mycompany.shared.constants.SimbaConstants;
+import com.uk.mycompany.shared.utils.StringUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.apache.poi.hssf.usermodel.HSSFWorkbook;
-import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
-import org.apache.poi.ss.usermodel.Workbook;
 
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -19,68 +17,54 @@ import java.util.Set;
  */
 public class ProfileSheet extends AbstractAIESheet {
 
-    private static final Logger logger = LogManager.getLogger(ProfileSheet.class);
+    private static final int ROW_NUMBER_FREEZE = 1;
 
-    private Workbook workbook = new HSSFWorkbook();
+    private static final int COLUMN_NUMBER_FREEZE = 1;
+
+    private static final Logger logger = LogManager.getLogger(ProfileSheet.class);
 
     //TODO: Set contructor back to default once sheet is tested and working correctly
     public ProfileSheet(final Set<Devise> datasource) {
-        super(datasource);
+        super(datasource, SimbaConstants.PROFILES_SHEET_NAME);
         generateSheet();
     }
 
     @Override
-    void generateSheet() {
+    public void generateSheet() {
 
-        logger.info("Starting workbook creation, this may take a while...");
+        final List<String> headers = Arrays.asList("Name", "Gender", "E-mail Address", "Here To", "Interests");
+        final int columnHeaderOffset = 0;
+        createColumnHeaders(headers, columnHeaderOffset);
+        freezePane(COLUMN_NUMBER_FREEZE, ROW_NUMBER_FREEZE);
 
-        try {
-            FileOutputStream out = new FileOutputStream("AIE1.xls");
+        int rowNumber = 1;
 
-            Sheet sheet = workbook.createSheet();
-            workbook.setSheetName(0, "Profiles");
-
-            Row row = sheet.createRow(0);
-            row.createCell(0).setCellValue("Name");
-            row.createCell(1).setCellValue("Gender");
-            row.createCell(2).setCellValue("Email Address");
-            row.createCell(3).setCellValue("Here To");
-            row.createCell(4).setCellValue("Interests");
-            sheet.createFreezePane(0, 1); // Freeze top row
-
-            for (Devise devise : datasource) {
-
-                final ProfileDetails currentDeviseProfile = devise.getProfileDetails();
-
-                final StringBuilder name = new StringBuilder();
-                name.append(currentDeviseProfile.getForename());
-                name.append(" ");
-                name.append(currentDeviseProfile.getSurname());
-
-                row = sheet.createRow(row.getRowNum() + 1);
-                row.createCell(0).setCellValue(name.toString());
-                row.createCell(1).setCellValue(currentDeviseProfile.getGender().toString());
-                row.createCell(2).setCellValue(currentDeviseProfile.getEmailAddress());
-                row.createCell(3).setCellValue(currentDeviseProfile.getReasonAttending());
-                int i = 4;
-                for (String interest : devise.getInterests()) {
-                    row.createCell(i++).setCellValue(interest);
-                }
-            }
-
-            // Auto-size the first three columns
-            for (int i = 0; i <= 3; i++) {
-                sheet.autoSizeColumn(i);
-            }
-
-            workbook.write(out);
-            out.close();
-
-            logger.info("Workbook created successfully!");
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
+        for (Devise devise : datasource) {
+            createDeviseProfileEntries(rowNumber++, devise);
         }
+
+        // Auto-size the first three columns
+        for (int i = 0; i <= 3; i++) {
+            sheet.autoSizeColumn(i);
+        }
+
+        autoSizeColumns(headers);
+        logger.info("Workbook created successfully!");
+    }
+
+    private void createDeviseProfileEntries(int rowNumber, final Devise devise) {
+
+        final ProfileDetails currentDeviseProfile = devise.getProfileDetails();
+        final String name = StringUtils.createFullname(currentDeviseProfile.getForename(), currentDeviseProfile.getSurname());
+        int columnNumber = 0;
+
+        createCellValue(rowNumber, columnNumber++, name);
+        createCellValue(rowNumber, columnNumber++, currentDeviseProfile.getGender().toString());
+        createCellValue(rowNumber, columnNumber++, currentDeviseProfile.getEmailAddress());
+        createCellValue(rowNumber, columnNumber++, currentDeviseProfile.getReasonAttending());
+
+        final String formattedInterestList = String.join(", ", devise.getInterests());
+
+        createCellValue(rowNumber, columnNumber, formattedInterestList);
     }
 }

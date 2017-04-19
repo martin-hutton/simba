@@ -28,4 +28,8 @@ public class SimbaConstants {
     public static final String USER_RESOURCE = "user/";
 
     public static final String DETAILS_PATH = "details";
+
+    public static final String CHECKIN_SHEET_NAME = "Weekly Checkin";
+
+    public static final String PROFILES_SHEET_NAME = "Profiles";
 }

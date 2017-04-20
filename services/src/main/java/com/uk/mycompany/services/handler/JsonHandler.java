@@ -27,7 +27,7 @@ public final class JsonHandler {
 
         final Set<Devise> deviseSet = getUsersFromData(json);
 
-        for (Devise devise : deviseSet) {
+        for (final Devise devise : deviseSet) {
             final UserResource userResource = new UserResource(devise.getProfileDetails().getUsername());
             final String response = userResource.get();
 
@@ -50,16 +50,16 @@ public final class JsonHandler {
             devise.getProfileDetails().setEmailAddress(jsonNode.get("emailAddress").asText());
             devise.getProfileDetails().setReasonAttending(jsonNode.get("bio").get("hereTo").asText());
 
-            Set<String> interests = new HashSet<>();
-            JsonNode interestsNode = jsonNode.get("bio").get("askMeAbout");
+            Set<String> skillsSet = new HashSet<>();
+            JsonNode skillsNode = jsonNode.get("bio").get("askMeAbout");
 
             //TODO:Update method to just add to set in single line rather than loop through
-            if (interestsNode.isArray())
-                for (final JsonNode node : interestsNode) {
-                    interests.add(node.asText().trim());
+            if (skillsNode.isArray())
+                for (final JsonNode node : skillsNode) {
+                    skillsSet.add(node.asText().trim());
                 }
 
-            devise.setInterests(interests);
+            devise.setSkills(skillsSet);
 
         } catch (IOException e) {
             e.printStackTrace();

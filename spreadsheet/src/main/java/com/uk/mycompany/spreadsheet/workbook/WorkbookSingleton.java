@@ -1,4 +1,4 @@
-package com.uk.mycompany.spreadsheet.sheet;
+package com.uk.mycompany.spreadsheet.workbook;
 
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Workbook;

@@ -1,0 +1,27 @@
+{
+  "forename": "Martin",
+  "surname": "Hutton",
+  "dateOfBirth": "2017-02-14",
+  "gender": "male",
+  "emailAddress": "martin.hutton@capgemini.com",
+  "bio": {
+    "hereTo": "AIE Website",
+    "askMeAbout": [
+      "Java",
+      " Weblogic",
+      " Maven",
+      " JMS"
+    ]
+  },
+  "checkIn": {
+    "group": {
+      "groupId": "people",
+      "groupName": "AIE"
+    },
+    "enrolment": {
+      "faceId": "093fe53c-e833-4bc5-80f1-39d26bcde57f",
+      "speakerId": "Not Enabled!"
+    }
+  },
+  "profileImage": "https://firebasestorage.googleapis.com/v0/b/aston-user.appspot.com/o/MartinHutton-2017-11-14-16-5-299.png?alt=media"
+}

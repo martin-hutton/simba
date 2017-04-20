@@ -16,6 +16,8 @@ public class ProfileDetails extends AbstractDomainObject {
 
     private String surname;
 
+    private Date dateOfBirth;
+
     private Gender gender;
 
     private String emailAddress;
@@ -46,6 +48,14 @@ public class ProfileDetails extends AbstractDomainObject {
 
     public void setSurname(String surname) {
         this.surname = surname;
+    }
+
+    public Date getDateOfBirth() {
+        return dateOfBirth;
+    }
+
+    public void setDateOfBirth(Date dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
     }
 
     public Gender getGender() {

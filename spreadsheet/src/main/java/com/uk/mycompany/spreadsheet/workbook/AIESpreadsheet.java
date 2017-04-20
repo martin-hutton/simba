@@ -1,7 +1,6 @@
-package com.uk.mycompany.spreadsheet;
+package com.uk.mycompany.spreadsheet.workbook;
 
-import com.uk.mycompany.spreadsheet.sheet.AIESheet;
-import com.uk.mycompany.spreadsheet.sheet.WorkbookSingleton;
+import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 
 import java.io.FileNotFoundException;

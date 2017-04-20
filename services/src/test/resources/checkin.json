@@ -1,0 +1,796 @@
+
+[
+  {
+    "username": "MartinHutton",
+    "Monday": {
+      "utrecht": {
+        "in": {
+          "disgust": 0.00003822791,
+          "happiness": 0.000178428949,
+          "contempt": 0.000434893678,
+          "surprise": 0.0001115341,
+          "anger": 0.0000228423451,
+          "neutral": 0.997360766,
+          "fear": 0.00000173131173,
+          "sadness": 0.00185156811,
+          "runningCount": 1
+        },
+        "out": {
+          "disgust": 0,
+          "happiness": 0,
+          "contempt": 0,
+          "surprise": 0,
+          "anger": 0,
+          "neutral": 0,
+          "fear": 0,
+          "sadness": 0,
+          "runningCount": 1
+        }
+      },
+      "holborn": {
+        "in": {
+          "disgust": 0,
+          "happiness": 0,
+          "contempt": 0,
+          "surprise": 0,
+          "anger": 0,
+          "neutral": 0,
+          "fear": 0,
+          "sadness": 0
+        },
+        "out": {
+          "disgust": 0,
+          "happiness": 0,
+          "contempt": 0,
+          "surprise": 0,
+          "anger": 0,
+          "neutral": 0,
+          "fear": 0,
+          "sadness": 0
+        }
+      },
+      "aston": {
+        "in": {
+          "disgust": 0,
+          "happiness": 0,
+          "contempt": 0,
+          "surprise": 0,
+          "anger": 0,
+          "neutral": 0,
+          "fear": 0,
+          "sadness": 0
+        },
+        "out": {
+          "disgust": 0,
+          "happiness": 0,
+          "contempt": 0,
+          "surprise": 0,
+          "anger": 0,
+          "neutral": 0,
+          "fear": 0,
+          "sadness": 0
+        }
+      },
+      "working from home": {
+        "in": {
+          "disgust": 0,
+          "happiness": 0,
+          "contempt": 0,
+          "surprise": 0,
+          "anger": 0,
+          "neutral": 0,
+          "fear": 0,
+          "sadness": 0
+        },
+        "out": {
+          "disgust": 0,
+          "happiness": 0,
+          "contempt": 0,
+          "surprise": 0,
+          "anger": 0,
+          "neutral": 0,
+          "fear": 0,
+          "sadness": 0
+        }
+      },
+      "woking": {
+        "in": {
+          "disgust": 0,
+          "happiness": 0,
+          "contempt": 0,
+          "surprise": 0,
+          "anger": 0,
+          "neutral": 0,
+          "fear": 0,
+          "sadness": 0
+        },
+        "out": {
+          "disgust": 0,
+          "happiness": 0,
+          "contempt": 0,
+          "surprise": 0,
+          "anger": 0,
+          "neutral": 0,
+          "fear": 0,
+          "sadness": 0
+        }
+      }
+    },
+    "Tuesday": {
+      "utrecht": {
+        "in": {
+          "disgust": 0,
+          "happiness": 0,
+          "contempt": 0,
+          "surprise": 0,
+          "anger": 0,
+          "neutral": 0,
+          "fear": 0,
+          "sadness": 0
+        },
+        "out": {
+          "disgust": 0,
+          "happiness": 0,
+          "contempt": 0,
+          "surprise": 0,
+          "anger": 0,
+          "neutral": 0,
+          "fear": 0,
+          "sadness": 0
+        }
+      },
+      "holborn": {
+        "in": {
+          "disgust": 0,
+          "happiness": 0,
+          "contempt": 0,
+          "surprise": 0,
+          "anger": 0,
+          "neutral": 0,
+          "fear": 0,
+          "sadness": 0
+        },
+        "out": {
+          "disgust": 0,
+          "happiness": 0,
+          "contempt": 0,
+          "surprise": 0,
+          "anger": 0,
+          "neutral": 0,
+          "fear": 0,
+          "sadness": 0
+        }
+      },
+      "aston": {
+        "in": {
+          "disgust": 0,
+          "happiness": 0,
+          "contempt": 0,
+          "surprise": 0,
+          "anger": 0,
+          "neutral": 0,
+          "fear": 0,
+          "sadness": 0
+        },
+        "out": {
+          "disgust": 0,
+          "happiness": 0,
+          "contempt": 0,
+          "surprise": 0,
+          "anger": 0,
+          "neutral": 0,
+          "fear": 0,
+          "sadness": 0
+        }
+      },
+      "working from home": {
+        "in": {
+          "disgust": 0,
+          "happiness": 0,
+          "contempt": 0,
+          "surprise": 0,
+          "anger": 0,
+          "neutral": 0,
+          "fear": 0,
+          "sadness": 0
+        },
+        "out": {
+          "disgust": 0,
+          "happiness": 0,
+          "contempt": 0,
+          "surprise": 0,
+          "anger": 0,
+          "neutral": 0,
+          "fear": 0,
+          "sadness": 0
+        }
+      },
+      "woking": {
+        "in": {
+          "disgust": 0,
+          "happiness": 0,
+          "contempt": 0,
+          "surprise": 0,
+          "anger": 0,
+          "neutral": 0,
+          "fear": 0,
+          "sadness": 0
+        },
+        "out": {
+          "disgust": 0,
+          "happiness": 0,
+          "contempt": 0,
+          "surprise": 0,
+          "anger": 0,
+          "neutral": 0,
+          "fear": 0,
+          "sadness": 0
+        }
+      }
+    },
+    "Wednesday": {
+      "utrecht": {
+        "in": {
+          "disgust": 0.0005704274,
+          "happiness": 0.541436732,
+          "contempt": 0.003924753,
+          "surprise": 0.0005043384,
+          "anger": 0.00124520692,
+          "neutral": 0.4509912,
+          "fear": 0.0000433074965,
+          "sadness": 0.00128401024,
+          "runningCount": 1
+        },
+        "out": {
+          "disgust": 0,
+          "happiness": 0,
+          "contempt": 0,
+          "surprise": 0,
+          "anger": 0,
+          "neutral": 0,
+          "fear": 0,
+          "sadness": 0,
+          "runningCount": 1
+        }
+      },
+      "holborn": {
+        "in": {
+          "disgust": 0,
+          "happiness": 0,
+          "contempt": 0,
+          "surprise": 0,
+          "anger": 0,
+          "neutral": 0,
+          "fear": 0,
+          "sadness": 0
+        },
+        "out": {
+          "disgust": 0,
+          "happiness": 0,
+          "contempt": 0,
+          "surprise": 0,
+          "anger": 0,
+          "neutral": 0,
+          "fear": 0,
+          "sadness": 0
+        }
+      },
+      "aston": {
+        "in": {
+          "disgust": 0,
+          "happiness": 0,
+          "contempt": 0,
+          "surprise": 0,
+          "anger": 0,
+          "neutral": 0,
+          "fear": 0,
+          "sadness": 0
+        },
+        "out": {
+          "disgust": 0,
+          "happiness": 0,
+          "contempt": 0,
+          "surprise": 0,
+          "anger": 0,
+          "neutral": 0,
+          "fear": 0,
+          "sadness": 0
+        }
+      },
+      "working from home": {
+        "in": {
+          "disgust": 0,
+          "happiness": 0,
+          "contempt": 0,
+          "surprise": 0,
+          "anger": 0,
+          "neutral": 0,
+          "fear": 0,
+          "sadness": 0
+        },
+        "out": {
+          "disgust": 0,
+          "happiness": 0,
+          "contempt": 0,
+          "surprise": 0,
+          "anger": 0,
+          "neutral": 0,
+          "fear": 0,
+          "sadness": 0
+        }
+      },
+      "woking": {
+        "in": {
+          "disgust": 0,
+          "happiness": 0,
+          "contempt": 0,
+          "surprise": 0,
+          "anger": 0,
+          "neutral": 0,
+          "fear": 0,
+          "sadness": 0
+        },
+        "out": {
+          "disgust": 0,
+          "happiness": 0,
+          "contempt": 0,
+          "surprise": 0,
+          "anger": 0,
+          "neutral": 0,
+          "fear": 0,
+          "sadness": 0
+        }
+      }
+    },
+    "Thursday": {
+      "utrecht": {
+        "in": {
+          "disgust": 0.00000122694416,
+          "happiness": 0.00012380883,
+          "contempt": 0.000275586615,
+          "surprise": 0.000138303,
+          "anger": 0.00000275468074,
+          "neutral": 0.9992687,
+          "fear": 3.48249358e-7,
+          "sadness": 0.000189251354,
+          "runningCount": 1
+        },
+        "out": {
+          "disgust": 0,
+          "happiness": 0,
+          "contempt": 0,
+          "surprise": 0,
+          "anger": 0,
+          "neutral": 0,
+          "fear": 0,
+          "sadness": 0,
+          "runningCount": 1
+        }
+      },
+      "holborn": {
+        "in": {
+          "disgust": 0,
+          "happiness": 0,
+          "contempt": 0,
+          "surprise": 0,
+          "anger": 0,
+          "neutral": 0,
+          "fear": 0,
+          "sadness": 0
+        },
+        "out": {
+          "disgust": 0,
+          "happiness": 0,
+          "contempt": 0,
+          "surprise": 0,
+          "anger": 0,
+          "neutral": 0,
+          "fear": 0,
+          "sadness": 0
+        }
+      },
+      "aston": {
+        "in": {
+          "disgust": 0,
+          "happiness": 0,
+          "contempt": 0,
+          "surprise": 0,
+          "anger": 0,
+          "neutral": 0,
+          "fear": 0,
+          "sadness": 0
+        },
+        "out": {
+          "disgust": 0,
+          "happiness": 0,
+          "contempt": 0,
+          "surprise": 0,
+          "anger": 0,
+          "neutral": 0,
+          "fear": 0,
+          "sadness": 0
+        }
+      },
+      "working from home": {
+        "in": {
+          "disgust": 0,
+          "happiness": 0,
+          "contempt": 0,
+          "surprise": 0,
+          "anger": 0,
+          "neutral": 0,
+          "fear": 0,
+          "sadness": 0
+        },
+        "out": {
+          "disgust": 0,
+          "happiness": 0,
+          "contempt": 0,
+          "surprise": 0,
+          "anger": 0,
+          "neutral": 0,
+          "fear": 0,
+          "sadness": 0
+        }
+      },
+      "woking": {
+        "in": {
+          "disgust": 0,
+          "happiness": 0,
+          "contempt": 0,
+          "surprise": 0,
+          "anger": 0,
+          "neutral": 0,
+          "fear": 0,
+          "sadness": 0
+        },
+        "out": {
+          "disgust": 0,
+          "happiness": 0,
+          "contempt": 0,
+          "surprise": 0,
+          "anger": 0,
+          "neutral": 0,
+          "fear": 0,
+          "sadness": 0
+        }
+      }
+    },
+    "Friday": {
+      "utrecht": {
+        "in": {
+          "disgust": 0,
+          "happiness": 0,
+          "contempt": 0,
+          "surprise": 0,
+          "anger": 0,
+          "neutral": 0,
+          "fear": 0,
+          "sadness": 0
+        },
+        "out": {
+          "disgust": 0,
+          "happiness": 0,
+          "contempt": 0,
+          "surprise": 0,
+          "anger": 0,
+          "neutral": 0,
+          "fear": 0,
+          "sadness": 0
+        }
+      },
+      "holborn": {
+        "in": {
+          "disgust": 0,
+          "happiness": 0,
+          "contempt": 0,
+          "surprise": 0,
+          "anger": 0,
+          "neutral": 0,
+          "fear": 0,
+          "sadness": 0
+        },
+        "out": {
+          "disgust": 0,
+          "happiness": 0,
+          "contempt": 0,
+          "surprise": 0,
+          "anger": 0,
+          "neutral": 0,
+          "fear": 0,
+          "sadness": 0
+        }
+      },
+      "aston": {
+        "in": {
+          "disgust": 0,
+          "happiness": 0,
+          "contempt": 0,
+          "surprise": 0,
+          "anger": 0,
+          "neutral": 0,
+          "fear": 0,
+          "sadness": 0
+        },
+        "out": {
+          "disgust": 0,
+          "happiness": 0,
+          "contempt": 0,
+          "surprise": 0,
+          "anger": 0,
+          "neutral": 0,
+          "fear": 0,
+          "sadness": 0
+        }
+      },
+      "working from home": {
+        "in": {
+          "disgust": 0,
+          "happiness": 0,
+          "contempt": 0,
+          "surprise": 0,
+          "anger": 0,
+          "neutral": 0,
+          "fear": 0,
+          "sadness": 0
+        },
+        "out": {
+          "disgust": 0,
+          "happiness": 0,
+          "contempt": 0,
+          "surprise": 0,
+          "anger": 0,
+          "neutral": 0,
+          "fear": 0,
+          "sadness": 0
+        }
+      },
+      "woking": {
+        "in": {
+          "disgust": 0,
+          "happiness": 0,
+          "contempt": 0,
+          "surprise": 0,
+          "anger": 0,
+          "neutral": 0,
+          "fear": 0,
+          "sadness": 0
+        },
+        "out": {
+          "disgust": 0,
+          "happiness": 0,
+          "contempt": 0,
+          "surprise": 0,
+          "anger": 0,
+          "neutral": 0,
+          "fear": 0,
+          "sadness": 0
+        }
+      }
+    },
+    "Saturday": {
+      "utrecht": {
+        "in": {
+          "disgust": 0,
+          "happiness": 0,
+          "contempt": 0,
+          "surprise": 0,
+          "anger": 0,
+          "neutral": 0,
+          "fear": 0,
+          "sadness": 0
+        },
+        "out": {
+          "disgust": 0,
+          "happiness": 0,
+          "contempt": 0,
+          "surprise": 0,
+          "anger": 0,
+          "neutral": 0,
+          "fear": 0,
+          "sadness": 0
+        }
+      },
+      "holborn": {
+        "in": {
+          "disgust": 0,
+          "happiness": 0,
+          "contempt": 0,
+          "surprise": 0,
+          "anger": 0,
+          "neutral": 0,
+          "fear": 0,
+          "sadness": 0
+        },
+        "out": {
+          "disgust": 0,
+          "happiness": 0,
+          "contempt": 0,
+          "surprise": 0,
+          "anger": 0,
+          "neutral": 0,
+          "fear": 0,
+          "sadness": 0
+        }
+      },
+      "aston": {
+        "in": {
+          "disgust": 0,
+          "happiness": 0,
+          "contempt": 0,
+          "surprise": 0,
+          "anger": 0,
+          "neutral": 0,
+          "fear": 0,
+          "sadness": 0
+        },
+        "out": {
+          "disgust": 0,
+          "happiness": 0,
+          "contempt": 0,
+          "surprise": 0,
+          "anger": 0,
+          "neutral": 0,
+          "fear": 0,
+          "sadness": 0
+        }
+      },
+      "working from home": {
+        "in": {
+          "disgust": 0,
+          "happiness": 0,
+          "contempt": 0,
+          "surprise": 0,
+          "anger": 0,
+          "neutral": 0,
+          "fear": 0,
+          "sadness": 0
+        },
+        "out": {
+          "disgust": 0,
+          "happiness": 0,
+          "contempt": 0,
+          "surprise": 0,
+          "anger": 0,
+          "neutral": 0,
+          "fear": 0,
+          "sadness": 0
+        }
+      },
+      "woking": {
+        "in": {
+          "disgust": 0,
+          "happiness": 0,
+          "contempt": 0,
+          "surprise": 0,
+          "anger": 0,
+          "neutral": 0,
+          "fear": 0,
+          "sadness": 0
+        },
+        "out": {
+          "disgust": 0,
+          "happiness": 0,
+          "contempt": 0,
+          "surprise": 0,
+          "anger": 0,
+          "neutral": 0,
+          "fear": 0,
+          "sadness": 0
+        }
+      }
+    },
+    "Sunday": {
+      "utrecht": {
+        "in": {
+          "disgust": 0,
+          "happiness": 0,
+          "contempt": 0,
+          "surprise": 0,
+          "anger": 0,
+          "neutral": 0,
+          "fear": 0,
+          "sadness": 0
+        },
+        "out": {
+          "disgust": 0,
+          "happiness": 0,
+          "contempt": 0,
+          "surprise": 0,
+          "anger": 0,
+          "neutral": 0,
+          "fear": 0,
+          "sadness": 0
+        }
+      },
+      "holborn": {
+        "in": {
+          "disgust": 0,
+          "happiness": 0,
+          "contempt": 0,
+          "surprise": 0,
+          "anger": 0,
+          "neutral": 0,
+          "fear": 0,
+          "sadness": 0
+        },
+        "out": {
+          "disgust": 0,
+          "happiness": 0,
+          "contempt": 0,
+          "surprise": 0,
+          "anger": 0,
+          "neutral": 0,
+          "fear": 0,
+          "sadness": 0
+        }
+      },
+      "aston": {
+        "in": {
+          "disgust": 0,
+          "happiness": 0,
+          "contempt": 0,
+          "surprise": 0,
+          "anger": 0,
+          "neutral": 0,
+          "fear": 0,
+          "sadness": 0
+        },
+        "out": {
+          "disgust": 0,
+          "happiness": 0,
+          "contempt": 0,
+          "surprise": 0,
+          "anger": 0,
+          "neutral": 0,
+          "fear": 0,
+          "sadness": 0
+        }
+      },
+      "working from home": {
+        "in": {
+          "disgust": 0,
+          "happiness": 0,
+          "contempt": 0,
+          "surprise": 0,
+          "anger": 0,
+          "neutral": 0,
+          "fear": 0,
+          "sadness": 0
+        },
+        "out": {
+          "disgust": 0,
+          "happiness": 0,
+          "contempt": 0,
+          "surprise": 0,
+          "anger": 0,
+          "neutral": 0,
+          "fear": 0,
+          "sadness": 0
+        }
+      },
+      "woking": {
+        "in": {
+          "disgust": 0,
+          "happiness": 0,
+          "contempt": 0,
+          "surprise": 0,
+          "anger": 0,
+          "neutral": 0,
+          "fear": 0,
+          "sadness": 0
+        },
+        "out": {
+          "disgust": 0,
+          "happiness": 0,
+          "contempt": 0,
+          "surprise": 0,
+          "anger": 0,
+          "neutral": 0,
+          "fear": 0,
+          "sadness": 0
+        }
+      }
+    }
+  }
+]

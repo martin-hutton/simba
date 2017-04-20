@@ -15,7 +15,7 @@ public class Devise extends AbstractDomainObject {
 
     private Emotion emotion;
 
-    private Set<String> interests;
+    private Set<String> skills;
 
     public ProfileDetails getProfileDetails() {
         return profileDetails;
@@ -41,11 +41,11 @@ public class Devise extends AbstractDomainObject {
         this.emotion = emotion;
     }
 
-    public Set<String> getInterests() {
-        return interests;
+    public Set<String> getSkills() {
+        return skills;
     }
 
-    public void setInterests(Set<String> interests) {
-        this.interests = interests;
+    public void setSkills(Set<String> skills) {
+        this.skills = skills;
     }
 }

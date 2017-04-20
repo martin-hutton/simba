@@ -32,7 +32,7 @@ public class WeeklyCheckinSheet extends AbstractAIESheet {
     }
 
     @Override
-    public void generateSheet() {
+    void generateSheet() {
 
         int rowNumber = 1;
 

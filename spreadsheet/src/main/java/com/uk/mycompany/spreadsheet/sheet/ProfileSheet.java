@@ -6,7 +6,6 @@ import com.uk.mycompany.shared.constants.SimbaConstants;
 import com.uk.mycompany.shared.utils.StringUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.apache.poi.ss.usermodel.Sheet;
 
 import java.util.Arrays;
 import java.util.List;
@@ -39,13 +38,8 @@ public class ProfileSheet extends AbstractAIESheet {
 
         int rowNumber = 1;
 
-        for (Devise devise : datasource) {
+        for (final Devise devise : datasource) {
             createDeviseProfileEntries(rowNumber++, devise);
-        }
-
-        // Auto-size the first three columns
-        for (int i = 0; i <= 3; i++) {
-            sheet.autoSizeColumn(i);
         }
 
         autoSizeColumns(headers);
@@ -63,7 +57,7 @@ public class ProfileSheet extends AbstractAIESheet {
         createCellValue(rowNumber, columnNumber++, currentDeviseProfile.getEmailAddress());
         createCellValue(rowNumber, columnNumber++, currentDeviseProfile.getReasonAttending());
 
-        final String formattedInterestList = String.join(", ", devise.getInterests());
+        final String formattedInterestList = String.join(", ", devise.getSkills());
 
         createCellValue(rowNumber, columnNumber, formattedInterestList);
     }

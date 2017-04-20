@@ -1,6 +1,7 @@
 package com.uk.mycompany.spreadsheet.sheet;
 
 import com.uk.mycompany.domain.Devise;
+import com.uk.mycompany.spreadsheet.workbook.WorkbookSingleton;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
@@ -11,7 +12,7 @@ import java.util.Set;
 /**
  * Created by mahutton on 12/04/2017.
  */
-public abstract class AbstractAIESheet implements AIESheet {
+public abstract class AbstractAIESheet {
 
     final int FIRST_ROW = 0;
 
@@ -27,7 +28,7 @@ public abstract class AbstractAIESheet implements AIESheet {
         this.sheet = workbook.createSheet(sheetName);
     }
 
-    public abstract void generateSheet();
+    abstract void generateSheet();
 
     void freezePane(final int columnSplit, final int rowSplit) {
         sheet.createFreezePane(columnSplit, rowSplit);
